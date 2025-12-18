@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # URLs des services
-SOAP_SERVICE_URL = os.getenv('SOAP_URL', 'http://localhost:8000/?wsdl')
+SOAP_SERVICE_URL = os.getenv('SOAP_URL', 'http://localhost:5001/?wsdl')
 IRVE_API_URL = 'https://opendata.reseaux-energies.fr/api/records/1.0/search/'
 CHARGETRIP_API_URL = 'https://api.chargetrip.io/graphql'
 
@@ -556,4 +556,5 @@ if __name__ == '__main__':
     print(f"   - Service SOAP (calculs)")
     print("=" * 70)
     
+
     app.run(host=HOST, port=PORT, debug=False)

@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "==================================="
-echo "Starting EV Trip Planner on Azure"
+echo "Starting EV Trip Planner on Azure"  hello world
 echo "==================================="
 
 # Installer les dépendances
@@ -21,4 +21,4 @@ sleep 5
 
 # Démarrer Flask
 echo "Starting Flask API on port 8080..."
-gunicorn --bind=0.0.0.0:8080 --timeout 600 --workers=2 app:app
+gunicorn --bind=0.0.0.0:$PORT  --timeout 600 --workers=2 app:app

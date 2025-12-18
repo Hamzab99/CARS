@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class TravelTimeClient:
     """Client pour interroger le service SOAP de calcul de temps de trajet"""
     
-    def __init__(self, wsdl_url='http://localhost:8000/?wsdl'):
+    def __init__(self, wsdl_url='http://localhost:5001/?wsdl'):
         """
         Initialise le client SOAP
         
@@ -174,4 +174,5 @@ def test_service():
 
 
 if __name__ == '__main__':
+
     test_service()

@@ -149,7 +149,7 @@ wsgi_application = WsgiApplication(application)
 
 if __name__ == '__main__':
     # Port pour Azure ou local
-    PORT = int(os.environ.get('SOAP_PORT', 8000))
+    PORT = int(os.environ.get('SOAP_PORT', 5001))
     HOST = os.environ.get('SOAP_HOST', '0.0.0.0')
     
     print("=" * 70)
@@ -167,4 +167,5 @@ if __name__ == '__main__':
         server.serve_forever()
     except KeyboardInterrupt:
         print("\n🛑 Arrêt du service SOAP")
+
         logger.info("Service SOAP arrêté")

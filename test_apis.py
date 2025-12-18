@@ -94,7 +94,7 @@ def test_chargetrip_api():
     api_key = os.getenv('CHARGETRIP_API_KEY', '')
     client_id = os.getenv('CHARGETRIP_CLIENT_ID', '5e8c22366f9c5f23ab0eff39')
     
-    if not api_key or api_key == 'YOUR_API_KEY':
+    if not api_key or api_key == '692a26889b4638ceff6b0f89':
         print_warning("Clé API Chargetrip non configurée dans .env")
         print_info("1. Aller sur https://chargetrip.com/")
         print_info("2. Créer un compte gratuit")
@@ -184,7 +184,7 @@ def test_openroute_api():
     
     api_key = os.getenv('OPENROUTE_API_KEY', '')
     
-    if not api_key or api_key == 'YOUR_OPENROUTE_KEY':
+    if not api_key or api_key == 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImIzMTgxMjc3OGFiMjQ5MzE4MDQwOGJiYTQ3M2FkMTg2IiwiaCI6Im11cm11cjY0In0':
         print_warning("Clé API OpenRouteService non configurée dans .env")
         print_info("1. Aller sur https://openrouteservice.org/")
         print_info("2. S'inscrire gratuitement")
@@ -294,7 +294,7 @@ def test_geo_api():
 def test_soap_service():
     print_header("TEST 5: Service SOAP Local")
     
-    soap_url = "http://localhost:8000/?wsdl"
+    soap_url = "http://localhost:5001/?wsdl"
     
     try:
         print_info("Tentative de connexion au service SOAP...")
@@ -401,4 +401,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()

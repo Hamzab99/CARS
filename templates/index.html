@@ -451,12 +451,8 @@
                 const card = document.createElement('div');
                 card.className = 'vehicle-card';
                 card.onclick = () => selectVehicle(vehicle);
-                const imageHTML = vehicle.image 
-                    ? `<img src="${vehicle.image}" alt="${vehicle.name}" class="vehicle-image" onerror="this.style.display='none'">`
-                    : `<div class="vehicle-image" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 24px;">🚗</div>`;
-        
+                
                 card.innerHTML = `
-                    ${imageHTML}
                     <div class="vehicle-name">${vehicle.name}</div>
                     <div class="vehicle-specs">
                         <div class="spec">⚡ ${vehicle.autonomy} km</div>
@@ -691,3 +687,4 @@
 </body>
 
 </html>
+

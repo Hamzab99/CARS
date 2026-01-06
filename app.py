@@ -169,6 +169,14 @@ def fetch_vehicles_from_chargetrip():
             worst
           }
         }
+        media {
+        image {
+        thumbnail_url
+        }
+        brand {
+        thumbnail_url
+        }
+        }
       }
     }
     """
@@ -192,13 +200,22 @@ def fetch_vehicles_from_chargetrip():
                     naming = vehicle_data.get('naming', {})
                     battery = vehicle_data.get('battery', {})
                     range_data = vehicle_data.get('range', {}).get('chargetrip_range', {})
-                    
+                    media = vehicle_data.get('media', {})
+        
                     best_range = range_data.get('best', 0)
                     worst_range = range_data.get('worst', 0)
                     avg_range = int((best_range + worst_range) / 2) if best_range and worst_range else 350
                     
                     battery_kwh = battery.get('usable_kwh', 50)
                     charge_time = round(battery_kwh / 50, 2)
+
+                    """ Récupérer l'image """
+                    image_url = ''
+                    if media:
+                    if media.get('image') and media['image'].get('thumbnail_url'):
+                    image_url = media['image']['thumbnail_url']
+                    elif media.get('brand') and media['brand'].get('thumbnail_url'):
+                    image_url = media['brand']['thumbnail_url']
                     
                     vehicle = {
                         'id': idx,
@@ -209,6 +226,7 @@ def fetch_vehicles_from_chargetrip():
                         'battery': battery_kwh,
                         'chargeTime': charge_time,
                         'seats': vehicle_data.get('body', {}).get('seats', 5)
+                        'image': image_url
                     }
                     
                     if vehicle['autonomy'] > 100 and vehicle['battery'] > 0:
@@ -558,3 +576,4 @@ if __name__ == '__main__':
     
 
     app.run(host=HOST, port=PORT, debug=False)
+
